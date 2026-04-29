@@ -72,7 +72,7 @@ Try accessing the `return_value` identifier without prepending `$`.
 
 <details>
     <summary>You Answer</summary>
-    ......
+    Ohne das vorangestellte $ wird der Variablenname nicht ausgewertet, sondern einfach als normaler Text ausgegeben. Nur mit $return_value erkennt die Shell, dass sie den Inhalt der Variable (in dem Fall "9") einsetzen soll.
 </details>
 
 ### Task 3: Function-Identifiers
@@ -97,7 +97,8 @@ and pressing `enter`.
 
 <details>
     <summary>Calling a Function</summary>
-    Include a screenshot of your function-call!
+    <img width="402" height="118" alt="grafik" src="https://github.com/user-attachments/assets/af4497d2-cc76-491a-bfa8-30b85a45b682" />
+
 </details>
 
 ### Task 4: Handling Parameters
@@ -263,7 +264,19 @@ These examples demonstrate various fundamental operations in Bash scripting, inc
     <summary>Your Function</summary>
     
 ```bash
-your code
+my_func () {
+> number=$1
+> text=$2
+> if (( number % 2 == 0 )); then
+> echo "Die Zahl $number ist gerade."
+> else
+> echo "Die Zahl $number ist ungerade."
+> fi
+> length=${#text}
+> echo "Der String hat eine länge von $length Zeichen"
+> ((number++))
+> echo "Die nächste ganze Zahl ist $number"
+> }
 ```
 
 </details>
@@ -301,7 +314,7 @@ cat ./function
 **What happend?**
 <details>
     <summary>Your Explaination</summary>
-    .....
+    Beim Speichern mit > wurde die Datei überschrieben, sodass nur die zuletzt gespeicherte Funktion enthalten war. Beim Speichern mit >> wurde die Ausgabe an die bestehende Datei angehängt, sodass beide Funktionen nacheinander in derselben Datei stehen.
 
 </details>
 
@@ -344,7 +357,7 @@ You can use a shorthand within your calls to add this string as a prefix to any 
 **Look at task 6 again. What is the complete filepath of your functions file?**
 <details>
     <summary>Your Answer</summary>
-    ....
+    /home/thorberg/functions
 </details>
 
 All filenames start with a `/`. 
@@ -368,7 +381,8 @@ cd /
 **Run `ls` again and insert the content here:**
 <details>
     <summary>Your Answer</summary>
-    ....
+    bin   dev  home  lib    lib64   lost+found  mnt  proc  run   snap  sys  usr
+boot  etc  init  lib32  libx32  media       opt  root  sbin  srv   tmp  var
 </details>
 
 Now navigate through your filesystem using `cd` and the name of the directory you want to set as your new `pwd`.
